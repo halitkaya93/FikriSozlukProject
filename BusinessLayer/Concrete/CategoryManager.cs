@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete.Repositories;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,28 +10,39 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
+        ICategoryDal _categoryDal;      //türü ICategoryDal dan gelen, _categoryDal adında bir field ım var.
 
-        GenericRepository<Category> repo = new GenericRepository<Category>(); //repo isminde nesne türettik
-
-        public List<Category> GetAllBL()
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            return repo.List();     //Listeleme yapmak için kullandık
+            _categoryDal = categoryDal;     //CategoryManager sınıfına ait yapıcı method oluşmuş oldu.
         }
-        public void CategoryAddBL(Category p)
+
+        public void CategoryAdd(Category category)
         {
-
-            if (p.CategoryName == "" || p.CategoryName.Length <= 3 || p.CategoryDescription == "" || p.CategoryName.Length >= 51)
-            {
-
-                //hata message
-
-            }
-            else
-            {
-                repo.Insert(p);
-            }
+            _categoryDal.Insert(category);
         }
+
+        public void CategoryDelete(Category category)
+        {
+            _categoryDal.Delete(category);
+        }
+
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
+        }
+
+        public Category GetById(int id)
+        {
+            return _categoryDal.Get(x => x.CategoryID == id); //id den gelen değerler eşitse işlemler gerçekleşecek
+        }
+
+        public List<Category> GetList()
+        {
+            return _categoryDal.List();
+        }
+                        
     }
 }

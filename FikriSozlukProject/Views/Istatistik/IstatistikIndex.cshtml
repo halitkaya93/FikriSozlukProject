@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "IstatistikIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>IstatistikIndex</h2>
+
+div>
+<div>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class=">
+                <div class="col-sm-6">
+                    <h1>İstatistikler</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="col-md-9">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-gradient-indigo">
+                        <div class="inner">
+                            <h3>@ViewBag.TotalCategories</h3>
+
+                            <br />
+                            <p>Toplam Kategori Sayısı</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-md-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>@ViewBag.TotalSofwareHeading</h3>
+                            <br />
+
+                            <p>Yazılım Kategorisine ait Başlık Sayısı</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>@ViewBag.TotalWriterWithLetterA</h3>
+                            <br />
+
+                            <p>Yazar Adında "a" Harfi Geçen Yazar Sayısı</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ./col -->
+                <div class="col-md-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>@ViewBag.CategoryOfTheMostHeading</h3>
+                            <br />
+                            <p>En Fazla Başlığa Sahip Kategori Adı</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+            <!-- Small Box (Stat card) -->
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-blue">
+
+                        <div class="inner">
+                            <h3>@ViewBag.TrueFalseDifferences</h3>
+
+                            <p>Durumu True Olan Kategoriler ile False olan Kategoriler Arasındaki Fark</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid --><!-- Small Box (Stat card) -->
+        <!--<div class="row">
+                <div class="col-md-3 col-6">-->
+        <!-- small card -->
+        <!--<div class="small-box bg-blue">
+
+                        <div class="inner">
+                            <h3>@ViewBag.mostused</h3>
+
+                            <p>2. En Fazla Başlığa Sahip Kategori Adı</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <script src="~/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+
+</div>
+</div>
