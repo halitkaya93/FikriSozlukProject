@@ -16,7 +16,7 @@ namespace EntityLayer.Concrete
         [StringLength(1000)]
         public string AboutDetails2 { get; set; }
 
-       [StringLength(100)]
+        [StringLength(100)]
         public string AboutImage1 { get; set; }      //Resimlerin dosya yolları kullanılacak
         [StringLength(100)]
         public string AboutImage2 { get; set; }      //Resimlerin dosya yolları kullanılacak

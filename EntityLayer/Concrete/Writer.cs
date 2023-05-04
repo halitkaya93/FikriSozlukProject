@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,6 +21,7 @@ namespace EntityLayer.Concrete
         [StringLength(250)]
         public string WriterImage { get; set; }
 
+        [StringLength(100)]
         public string WriterAbout { get; set; }
 
         [StringLength(200)]
@@ -29,6 +30,8 @@ namespace EntityLayer.Concrete
         [StringLength(200)]
         public string WriterPassword { get; set; }
 
+        [StringLength(50)]
+        public string WriterTitle { get; set; }
         public bool WriterStatus { get; set; }
 
         //Yazar işin 1 tarafında başlıklar işin çok tarafında olacak

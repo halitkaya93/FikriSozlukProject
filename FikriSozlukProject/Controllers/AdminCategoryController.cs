@@ -15,6 +15,7 @@ namespace FikriSozlukProject.Controllers
     {
         // GET: AdminCategory
         CategoryManager cm = new CategoryManager(new EfCategoryDal());  //CategoryManager ı çağırıyoruz farklı bir yapıya geçişi kolay daha az bağımlı yapı
+        [Authorize(Roles ="A")] //Yani Index sayfasını sadece giriş yapanlar ve sadece "A" Rolüne sahip olanlar görebilecek.
         public ActionResult Index()
         {
             var categoryvalues = cm.GetList();  //Listeleme işlemi için

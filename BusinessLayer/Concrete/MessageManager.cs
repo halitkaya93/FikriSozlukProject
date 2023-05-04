@@ -1,0 +1,66 @@
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BusinessLayer.Concrete
+{
+    public class MessageManager : IMessageService
+    {
+        IMessageDal _messageDal;      //türü IMessageDal dan gelen, _messageDal adında bir field ım var.
+
+        public MessageManager(IMessageDal messageDal)
+        {
+            _messageDal = messageDal;
+        }
+
+        public Message GetByID(int id)
+        {
+            return _messageDal.Get(x => x.MessageID == id);
+        }
+
+        public List<Message> GetListInbox()
+        {
+            return _messageDal.List(x => x.ReceiverMail == "admin@admin.com");
+        }
+
+        public List<Message> GetListSendbox()
+        {
+            return _messageDal.List(x => x.SenderMail == "admin@admin.com");
+        }
+
+        public List<Message> GetListTrash()
+        {
+            return _messageDal.List(x => x.Trash == true);
+        }
+
+        public List<Message> GetListDraft()
+        {
+            return _messageDal.List(x => x.IsDraft == true);
+        }
+
+        public List<Message> IsDraft()
+        {
+            return _messageDal.List(x => x.IsDraft == true);
+        }
+
+        public void MessageAdd(Message message)
+        {
+            _messageDal.Insert(message);
+        }
+
+        public void MessageDelete(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MessageUpdate(Message message)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

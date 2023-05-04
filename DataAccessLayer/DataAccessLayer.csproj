@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
@@ -67,8 +68,25 @@
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageFileDal.cs" />
     <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
+    <Compile Include="Migrations\202304101308363_mig_writer_edit.cs" />
+    <Compile Include="Migrations\202304101308363_mig_writer_edit.designer.cs">
+      <DependentUpon>202304101308363_mig_writer_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304102231063_mig_writertitle_add.cs" />
+    <Compile Include="Migrations\202304102231063_mig_writertitle_add.designer.cs">
+      <DependentUpon>202304102231063_mig_writertitle_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305031552135_mig_admin_table.cs" />
+    <Compile Include="Migrations\202305031552135_mig_admin_table.designer.cs">
+      <DependentUpon>202305031552135_mig_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305031758318_mig_admin_table_update.cs" />
+    <Compile Include="Migrations\202305031758318_mig_admin_table_update.designer.cs">
+      <DependentUpon>202305031758318_mig_admin_table_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,7 +94,20 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202304101308363_mig_writer_edit.resx">
+      <DependentUpon>202304101308363_mig_writer_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304102231063_mig_writertitle_add.resx">
+      <DependentUpon>202304102231063_mig_writertitle_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031552135_mig_admin_table.resx">
+      <DependentUpon>202305031552135_mig_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031758318_mig_admin_table_update.resx">
+      <DependentUpon>202305031758318_mig_admin_table_update.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{6a01b176-29b2-46be-9fc6-d540ed8cfd76}</Project>
