@@ -25,8 +25,8 @@ namespace BusinessLayer.Abstract
         //List<Message> GetListTrash();
         //List<Message> GetListSpam(string session);
         //List<Message> GetListImportant(string session);
-        List<Message> GetListInbox();
-        List<Message> GetListSendbox();
+        List<Message> GetListInbox(string p);
+        List<Message> GetListSendbox(string P);
         //List<Message> GetReadList();
         //List<Message> GetUnReadList();
         List<Message> IsDraft();

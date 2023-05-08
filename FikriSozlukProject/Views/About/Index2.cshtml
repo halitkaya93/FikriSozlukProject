@@ -1,0 +1,97 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FikriSözlük Hakkımızda</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<div class="navbar bg-black navbar-dark navbar-expand-sm">
+    <div class="container">
+        <a href="/" class="navbar-brand"></a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="/Home/HomePage" class="nav-link">Ana Sayfa</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav nav justify-content-center ">
+            <li>
+
+                @using (Html.BeginForm("GetAllHomeContent", "Home", FormMethod.Post))
+                {
+                    <p>
+                        @Html.TextBox("p")
+                        <i class="fa fa-search" placeholder="Başlık " type="submit"></i>
+                    </p>
+                }
+
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                <li class="nav-item">
+                    <a href="/Login/LogOut" class="nav-link">Çıkış Yap</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a href="/Login/WriterLogin" class="nav-link">Giriş Yap</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Writer/AddWriter" class="nav-link"><strong>Kaydol</strong></a>
+                </li>
+
+            }
+        </ul>
+    </div>
+</div>
+
+<body>
+    <div>
+        <h1>Hakkımızda</h1>
+        <p>FikriSözlük sayfası Kocaeli Üniversitesi Bilgisayar Programcılığı öğrenci Halit Kaya tarafından bitirme projesi olarak yapılmıştır.</p>
+        <p>Projemiz temelde uludağsözlük ve ekşisözlük baz alınarak yapılmaya özen gösterilmiştir.</p>
+        <p>Projenin geliştirmesi hali hazırda devam edecektir.</p>
+        <br />
+        <br />
+        <br />
+        <h3>İletişim</h3>
+        <p>Dilek ve istekleriniz için FikriSözlük sayfamıza kaydınızı yaptıktan sonra, mesajlar bölümünden Alıcı Maili: "<b>admin@admin.com</b>" a göndereceğiniz mesajlara adminlerimiz tarafından en kısa zamanda dönüş yapılacaktır.</p>
+
+
+    </div>
+</body>
+ </div>
+<!-- ./wrapper -->
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="~/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="~/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="~/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="~/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
+<script src="~/AdminLTE-3.2.0/dist/js/demo.js"></script>
+<script src="~/AdminLTE-3.2.0/dist/js/pages/dashboard3.js"></script>
+</html>

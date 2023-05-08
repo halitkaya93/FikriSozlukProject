@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +10,54 @@ namespace FikriSozlukProject.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        HeadingManager hm = new HeadingManager(new EfHeadingDal());
+        ContentManager cm = new ContentManager(new EfContentDal());
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        //public ActionResult About()
+        //{
+        //    ViewBag.Message = "Your application description page.";
+
+        //    return View();
+        //}
+
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
+
+        //    return View();
+        //}
+        [AllowAnonymous]
+        public ActionResult HomePage()
         {
-            return View();
+            var headinglist = hm.GetList();
+            return View(headinglist);
         }
-
-        public ActionResult About()
+        [AllowAnonymous]
+        public ActionResult HomePageHeadings()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var headinglist = hm.GetList();
+            return View(headinglist);
         }
-
-        public ActionResult Contact()
+        [AllowAnonymous]
+        public PartialViewResult HomePageIndex(int id = 0)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var contentlist = cm.GetListByHeadingID(id);
+            return PartialView(contentlist);
         }
+        [AllowAnonymous]
+        public ActionResult GetAllHomeContent(string p)
+        {
+            var values = cm.GetList(p);
+            if (p == null)
+            {
+                return View(cm.GetList(""));
+            }
+            return View(values);
+        }       
+
     }
 }

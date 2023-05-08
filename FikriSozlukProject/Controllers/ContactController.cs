@@ -31,16 +31,16 @@ namespace FikriSozlukProject.Controllers
         {
             //sonrasında düzenlenecek
             //Context c = new Context();
-
+            string p = (string)Session["WriterMail"];
             var TotalContacts = cm.GetList().Count(); //Toplam İletişim Mesaj sayısı
-            var TotalInbox = mm.GetListInbox().Where(x => x.ReceiverMail == "admin@gmail.com").Count();  //Toplam Inbox sayısı
-            var TotalSendbox = mm.GetListSendbox().Where(x => x.SenderMail == "admin@gmail.com").Count();  //Toplam Sendbox sayısı
-            var TotalIsDraft = mm.GetListSendbox().Where(x => x.IsDraft == true).Count();  //Toplam Draft sayısı
+            var TotalInbox = mm.GetListInbox(p).Where(x => x.ReceiverMail == p).Count();  //Toplam Inbox sayısı
+            var TotalSendbox = mm.GetListSendbox(p).Where(x => x.SenderMail == p).Count();  //Toplam Sendbox sayısı
+           // var TotalIsDraft = mm.GetListSendbox(p).Where(x => x.IsDraft == true).Count();  //Toplam Draft sayısı
 
             ViewBag.TotalContacts = TotalContacts;
             ViewBag.TotalInbox = TotalInbox;
             ViewBag.TotalSendbox = TotalSendbox;
-            ViewBag.TotalIsDraft = TotalIsDraft;
+           // ViewBag.TotalIsDraft = TotalIsDraft;
 
             return PartialView();
         }

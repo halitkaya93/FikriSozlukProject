@@ -1,8 +1,25 @@
 ﻿@model EntityLayer.Concrete.Writer
 @{
     ViewBag.Title = "AddWriter";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = null;
 }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>FikriSozluk</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
 
 <h2>Yeni Yazar Ekleme</h2>
 <br />
@@ -40,3 +57,14 @@
         <button class="btn btn-info">Yazarı Ekle</button>
     </div>
 }
+
+<script src="~/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="~/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="~/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="~/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
+<script src="~/AdminLTE-3.2.0/dist/js/demo.js"></script>
+<script src="~/AdminLTE-3.2.0/dist/js/pages/dashboard3.js"></script>

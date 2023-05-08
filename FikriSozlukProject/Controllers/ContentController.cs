@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,16 @@ namespace FikriSozlukProject.Controllers
         {
             return View();
         }
+        public ActionResult GetAllContent(string p)
+        {            
+            var values = cm.GetList(p);
+            if (p == null)
+            {
+                return View(cm.GetList(""));
+            }
+            return View(values);
+        }
+
         public ActionResult ContentByHeading(int id)
         {
             var contentvalues = cm.GetListByHeadingID(id);    //ilgili değeri çağırmak için

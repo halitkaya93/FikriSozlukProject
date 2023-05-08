@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace FikriSozlukProject.Controllers
 {
+    [AllowAnonymous]
     public class WriterController : Controller
     {
         // GET: Writer

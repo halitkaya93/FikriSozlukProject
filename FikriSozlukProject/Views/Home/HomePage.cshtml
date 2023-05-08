@@ -1,0 +1,465 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>FikriSözlük</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Recognize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/web/css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link href="~/AdminLTE-3.2.0/web/css/simpleLightbox.css" rel='stylesheet' type='text/css' />
+    <link href="~/AdminLTE-3.2.0/web/css/roadmap.css" rel="stylesheet" type="text/css" />
+    <!-- Banner-Slider-CSS -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/web/css/snow.css">
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/web/css/aos.css">
+    <link href='~/AdminLTE-3.2.0/web/css/aos-animation.css' rel='stylesheet prefetch' type="text/css" media="all" />
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/web/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/web/css/fontawesome-all.css">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,400,400i,500,500i,700,700i,900" rel="stylesheet">
+    <!-- //Fonts -->
+
+</head>
+
+<body>
+    <!-- mian-content -->
+    <header class="index-banner" id="home">
+        <!-- nav -->
+        <nav class="main-header d-flex">
+            <div id="brand">
+                <div id="logo">
+                    <a href="~/Home/HomePage/">
+                        <i class="fab fa-foursquare"></i>
+                    </a>
+                </div>
+                <div id="logo">
+                    <a href="~/Home/HomePage/">
+                        <i class="fab fa-staylinked"></i>
+                    </a>
+                </div>
+                <div id="word-mark">
+                    <h1>
+                        <a href="~/Home/HomePage/">FikriSözlük</a>
+                    </h1>
+                </div>
+            </div>
+
+
+
+            <div id="menu">
+                <div id="menu-toggle">
+                    <div id="menu-icon">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+
+                <ul class="text-center nav-honey">
+                    <li>
+
+                        @using (Html.BeginForm("GetAllHomeContent", "Home", FormMethod.Post))
+                        {
+                            <p>
+                                @Html.TextBox("p")
+                                <i class="fa fa-search" placeholder="Başlık " type="submit"></i>
+                            </p>
+                        }
+
+                    </li>
+                   
+                    <li>
+                        <a class="scroll" href="/Home/GetAllHomeContent/">Sözlük</a>
+                    </li>
+                    <li class="login">
+                            <a href="/Login/WriterLogin" class="nav-link">Giriş Yap</a>                          
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn login-btn text-uppercase " data-toggle="modal" data-target="#exampleModalCenter">
+                            <a href="/Writer/AddWriter" class="nav-link">Üye Ol</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/About/Index2" class="nav-link">Hakkımızda</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="clearfix"></div>
+        </nav>
+        <!-- //nav -->
+        <!-- banner -->
+        <div class="banner_section">
+            <div class="snow-container">
+                <div class="snow foreground"></div>
+                <div class="snow foreground layered"></div>
+                <div class="snow middleground"></div>
+                <div class="snow middleground layered"></div>
+                <div class="snow background"></div>
+                <div class="snow background layered"></div>
+            </div>
+            <div class="banner-info text-blue">
+                <h6 data-aos="fade-right">Merhabalar</h6>
+                <h3 data-text="FikriSözlük">FikriSözlük</h3>
+                <h5 data-aos="fade-right">Sayfamıza Hoş Geldiniz...</h5>
+
+            </div>
+        </div>
+        <!-- //banner -->
+        <!--//header -->
+    </header>
+
+
+    <section class="experience py-lg-5 py-4" id="experience">
+        <div class="timeline py-lg-5 py-3">
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+                <a href="/Home/HomePage" class="brand-link">
+                    <i class="fab fa-foursquare"></i>
+                    <i class="fab fa-staylinked"></i>
+                    <span class="brand-text font-weight-light">FikriSözlük  </span>
+                </a>
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar user panel (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="text-center">
+                            <a class=" d-block">Bugün</a>
+                        </div>
+                    </div>
+                    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                        <!-- Sidebar Menu -->
+                        <nav class="mt-2">
+                            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                                <!-- Add icons to the links using the .nav-icon class
+                                with font-awesome or any other icon font library -->
+                                @foreach (var item in Model)
+                                {
+                                    <li class="nav-item">
+                                        <a href="/Home/HomePageHeadings/@item.HeadingID" class="nav-link">
+
+                                            <p>
+                                                @item.HeadingName
+                                            </p>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                        <!-- /.sidebar-menu -->
+                    </aside>
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+        </div>
+    </section>
+
+
+
+
+    
+    <footer class="footer text-left">
+        <div class="container py-4 py-sm-5">
+
+            <div class="row py-sm-4 py-3">
+                <div class="col-lg-2 col-md-4">
+                    <ul class="list-footer" data-aos="fade-up">
+                        <li>
+                            <a href="/Home/HomePage" class="nav-link scroll">
+                                Home
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="list-footer" data-aos="fade-up">
+                        <li>
+                            <a href="/Login/Index/">
+                                Admin Girişi
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between pt-lg-3  footer-bottom-cpy">
+                <div class="copy-right-w3ls">
+                    <p>
+                        © FikriSözlük WebSite written by Halit KAYA...
+
+                    </p>
+                </div>
+                <div class="social-content pb-md-0 pb-4">
+                    <ul class="social-icons text-center d-flex">
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--//footer-->
+    <!--model-forms-->
+   
+    <!--/Register-->
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="login px-4 mx-auto mw-100">
+                        <h5 class="text-center mb-4">Register Now</h5>
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label>First name</label>
+
+                                <input type="text" class="form-control" id="validationDefault01" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" id="validationDefault02" placeholder="" required="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="mb-2">Password</label>
+                                <input type="password" class="form-control" id="password1" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" class="form-control" id="password2" placeholder="" required="">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit mb-4">Register</button>
+                            <p class="text-center pb-4">
+                                <a href="#">By clicking Register, I agree to your terms</a>
+                            </p>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--//Register-->
+
+    <script src="~/AdminLTE-3.2.0/web/js/jquery-2.2.3.min.js"></script>
+    <!-- banner-type-text -->
+    <script src='~/AdminLTE-3.2.0/web/js/aos.js'></script>
+    <script>
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1000
+        });
+
+    </script>
+    <!-- sticky nav bar-->
+    <script>
+        $(() => {
+
+            //On Scroll Functionality
+            $(window).scroll(() => {
+                var windowTop = $(window).scrollTop();
+                windowTop > 100 ? $('nav').addClass('navShadow') : $('nav').removeClass('navShadow');
+                windowTop > 100 ? $('ul.nav-honey').css('top', '50px') : $('ul.nav-honey').css('top', '160px');
+            });
+
+            //Click Logo To Scroll To Top
+            $('#logo').on('click', () => {
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            //            //Smooth Scrolling Using Navigation Menu
+            //            $('a[href*="#"]').on('click', function(e) {
+            //                $('html,body').animate({
+            //                    scrollTop: $($(this).attr('href')).offset().top - 100
+            //                }, 500);
+            //                e.preventDefault();
+            //            });
+
+            //Toggle Menu
+            $('#menu-toggle').on('click', () => {
+                $('#menu-toggle').toggleClass('closeMenu');
+                $('ul').toggleClass('showMenu');
+
+                $('li').on('click', () => {
+                    $('ul').removeClass('showMenu');
+                    $('#menu-toggle').removeClass('closeMenu');
+                });
+            });
+
+        });
+
+    </script>
+    <!-- //sticky nav bar -->
+    <!-- Include jQuery Timeline Plugin -->
+    <script src="~/AdminLTE-3.2.0/web/js/jquery.roadmap.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            var events = [{
+                date: 'Oct 2018 - Present',
+                content: 'Company Name <small>Co-founder, Front-end Designer</small>'
+            },
+            {
+                date: '2016 - 2018',
+                content: 'Company Name <small>Senior Visual Designer</small>'
+            },
+            {
+                date: '2013 - 2016',
+                content: 'Company Name <small>Mid-level Designer</small>'
+            },
+            {
+                date: '2012 - 2013',
+                content: 'Company Name <small>Mid-level Designer</small>'
+            },
+            {
+                date: '2012 - 2013',
+                content: 'Company Name <small>Freelance</small>'
+            },
+            {
+                date: '2011 - 2012',
+                content: 'San Diego university  <small>For Design</small>'
+            },
+            {
+                date: '2010 - 2011',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
+
+            {
+                date: '2009 - 2010',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
+
+            {
+                date: '2008 - 2009',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
+            {
+                date: '2005 - 2008',
+                content: 'Lorem Ipsum  <small>Add Description</small>'
+            },
+            {
+                date: '2003 - 2005',
+                content: 'Lorem IPsum  <small>Add Description</small>'
+            },
+            {
+                date: '2001 - 2003',
+                content: 'Lorem IPsum  <small>Add Description</small>'
+            }
+            ];
+
+            $('#my-timeline').roadmap(events, {
+                eventsPerSlide: 6,
+                slide: 1,
+                prevArrow: '<i class="fas fa-chevron-left"></i>',
+                nextArrow: '<i class="fas fa-chevron-right"></i>'
+            });
+        });
+
+    </script>
+    <!-- simpleLightbox -->
+    <script src="~/AdminLTE-3.2.0/web/js/simpleLightbox.js"></script>
+    <script>
+        $('.proj_gallery_grid a').simpleLightbox();
+
+    </script>
+    <!-- //simpleLightbox -->
+    <!-- stats -->
+    <script src="~/AdminLTE-3.2.0/web/js/jquery.waypoints.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/web/js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+
+    </script>
+    <!-- //stats -->
+    <!--/ start-smoth-scrolling -->
+    <script src="~/AdminLTE-3.2.0/web/js/move-top.js"></script>
+    <script src="~/AdminLTE-3.2.0/web/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            /*
+                                    var defaults = {
+                                          containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear'
+                                     };
+                                    */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+
+    </script>
+    <!--// end-smoth-scrolling -->
+    <!-- //js -->
+
+    <script src="~/AdminLTE-3.2.0/web/js/bootstrap.js"></script>
+
+</body>
+
+</html>
