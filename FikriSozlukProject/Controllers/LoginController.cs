@@ -4,6 +4,7 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -67,5 +68,6 @@ namespace FikriSozlukProject.Controllers
             Session.Abandon();
             return RedirectToAction("Headings", "Default");
         }
+
     }
 }

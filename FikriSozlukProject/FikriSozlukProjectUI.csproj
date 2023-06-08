@@ -2099,6 +2099,7 @@
     <Content Include="AdminLTE-3.2.0\web\webfonts\fa-brands-400.svg" />
     <Content Include="AdminLTE-3.2.0\web\webfonts\fa-regular-400.svg" />
     <Content Include="AdminLTE-3.2.0\web\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\avatarContainer.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2686,6 +2687,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\previewImage.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2763,6 +2765,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

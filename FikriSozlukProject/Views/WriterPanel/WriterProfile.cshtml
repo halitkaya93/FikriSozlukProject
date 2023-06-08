@@ -4,14 +4,26 @@
     ViewBag.Title = "WriterProfile";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+<link href="~/Content/avatarContainer.css" rel="stylesheet" />
+
 <br />
 <h2>Profilinizi Düzenleyin</h2>
 
 @using (Html.BeginForm("WriterProfile", "WriterPanel", FormMethod.Post))
 {
-<div class="">
-    
-    @*@Html.Label("Yazar ID")*@
+<div class="form-group">
+     
+    <div>
+        @Html.Label("Yazar Profil Resmi")
+        <br />
+        <div id="avatarContainer">
+            <img id="preview" src="@Url.Content(Model.WriterImage)" >
+        </div>
+        @*<input type="file" name="WriterImage" id="fileInput" accept="image/*" onchange="previewImage(event)" />*@
+    </div>
+    <br />
+
+    <br />
     @Html.HiddenFor(x => x.WriterID, new { @class = "form-control" })
     @Html.Label("Yazar Adı")
     @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
@@ -29,10 +41,7 @@
     @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WriterPassword, null, new { @class = "text-danger" })
     <br />
-    @Html.Label("Yazar Görsel Linki")
-    @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterImage, null, new { @class = "text-danger" })
-    <br />
+
     @Html.Label("Yazar Ünvanı")
     @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WriterTitle)
@@ -44,3 +53,5 @@
 </div>
     <button class="btn btn-success">Değişiklikleri Uygula</button>
 }
+<script src="~/Scripts/previewImage.js"></script>
+

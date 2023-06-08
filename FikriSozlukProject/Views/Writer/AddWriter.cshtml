@@ -9,6 +9,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>FikriSozluk</title>
+    <link href="~/Content/avatarContainer.css" rel="stylesheet" />
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
@@ -19,52 +20,66 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<body>
+    <div class="col-md-9">
+        <h2>Yeni Yazar Ekleme</h2>
+        <br />
 
 
-<h2>Yeni Yazar Ekleme</h2>
-<br />
-@using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.Label("Yazar Adı")
-        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterName)
-        <br />
-        @Html.Label("Yazar Soyadı")
-        @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterSurname)
-        <br />
-        @Html.Label("Yazar Mail")
-        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterMail)
-        <br />
-        @Html.Label("Yazar Şifresi")
-        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterPassword)
-        <br />
-        @Html.Label("Yazar Göresel Linki")
-        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterImage)
-        <br />
-        @Html.Label("Yazar Ünvanı")
-        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterTitle)
-        <br />
-        @Html.Label("Yazar Hakkında")
-        @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.WriterAbout)
-        <br />
-        <button class="btn btn-info">Yazarı Ekle</button>
+        @using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">                                             
+                <div>
+                    @Html.Label("Yazar Profil Resmi")
+                    <br />
+                    <div id="avatarContainer">
+                        <img id="preview" src="#" alt="Resim Önizleme" style="display: none;">
+                    </div>
+                    <input type="file" name="WriterImage" id="fileInput" accept="image/*" onchange="previewImage(event)" />
+                </div>
+                <br />
+                @Html.Label("Yazar Adı")
+                @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterName)
+                <br />
+                @Html.Label("Yazar Soyadı")
+                @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterSurname)
+                <br />
+                @Html.Label("Yazar Mail")
+                @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterMail)
+                <br />
+                @Html.Label("Yazar Şifresi")
+                @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterPassword)
+                
+                <br />
+                @Html.Label("Yazar Ünvanı")
+                @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterTitle)
+                <br />
+                @Html.Label("Yazar Hakkında")
+                @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterAbout)
+                <br />
+                <button class="btn btn-info">Yazarı Ekle</button>
+            </div>
+        }
+
+        <script src="~/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="~/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE -->
+        <script src="~/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
+
+        <!-- OPTIONAL SCRIPTS -->
+        <script src="~/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
+        <script src="~/AdminLTE-3.2.0/dist/js/demo.js"></script>
+        <script src="~/AdminLTE-3.2.0/dist/js/pages/dashboard3.js"></script>
+        <script src="~/Scripts/previewImage.js"></script>
     </div>
-}
+</body>
 
-<script src="~/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="~/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE -->
-<script src="~/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
 
-<!-- OPTIONAL SCRIPTS -->
-<script src="~/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
-<script src="~/AdminLTE-3.2.0/dist/js/demo.js"></script>
-<script src="~/AdminLTE-3.2.0/dist/js/pages/dashboard3.js"></script>
+

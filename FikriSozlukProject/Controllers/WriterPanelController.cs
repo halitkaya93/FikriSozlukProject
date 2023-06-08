@@ -11,6 +11,7 @@ using PagedList;
 using PagedList.Mvc;
 using BusinessLayer.ValidationRules;
 using FluentValidation.Results;
+using System.IO;
 
 namespace FikriSozlukProject.Controllers
 {
@@ -37,6 +38,16 @@ namespace FikriSozlukProject.Controllers
             ValidationResult result = writervalidator.Validate(p);
             if (result.IsValid)     //EĞER SONUÇLAR GEÇERLİYSE
             {
+                if (p.WriterImage != null && Request.Files.Count > 0)
+                {
+                    string imagefilename = Path.GetFileName(Request.Files[0].FileName);
+                    string extension = Path.GetExtension(Request.Files[0].FileName);    //uzantı 
+                    string yol = "~/Image/" + imagefilename + extension;
+                    Request.Files[0].SaveAs(Server.MapPath(yol));
+                    p.WriterImage = "/Image/" + imagefilename + extension;
+                    wm.WriterUpdate(p);
+
+                }
                 wm.WriterUpdate(p);
                 return RedirectToAction("AllHeading","WriterPanel");
             }

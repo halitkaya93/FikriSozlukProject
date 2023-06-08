@@ -5,6 +5,7 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,8 +35,18 @@ namespace FikriSozlukProject.Controllers
             ValidationResult result = writervalidator.Validate(p);
             if (result.IsValid)     //EĞER SONUÇLAR GEÇERLİYSE
             {
+                if (Request.Files.Count>0)
+                {
+                    string imagefilename = Path.GetFileName(Request.Files[0].FileName);
+                    string extension = Path.GetExtension(Request.Files[0].FileName);    //uzantı 
+                    string yol = "~/Image/" + imagefilename + extension;
+                    Request.Files[0].SaveAs(Server.MapPath(yol));
+                    p.WriterImage = "/Image/" + imagefilename + extension;                   
+
+                }
                 wm.WriterAdd(p);                    //PARAMETREDEN GELEN DEĞERİ EKLE
-                return RedirectToAction("Index");
+                
+                return RedirectToAction("WriterLogin","Login");
             }
             else
             {
@@ -69,6 +80,19 @@ namespace FikriSozlukProject.Controllers
                 }
             }
             return View();
+
+        }
+        
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/AdminLTE-3.2.0/image/"), fileName);
+                file.SaveAs(path);
+            }
+            return RedirectToAction("AddWriter");
         }
     }
 }
